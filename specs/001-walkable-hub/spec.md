@@ -1,4 +1,6 @@
-# Feature Specification: Walkable Academy Hub
+# Objective
+
+**Feature**: Walkable Academy Hub
 
 **Feature Branch**: `001-walkable-hub`
 
@@ -8,7 +10,13 @@
 
 **Input**: User description: "Build a walkable hub screen where the player moves a character with arrow keys or WASD in real time, bounded to the map. Walking near a building (Academy Hall, Spirit Beast Stables, Archives, Market Row, Training Grounds) shows a popup with its name and a one-line description, and hides it when walking away. The character cannot walk through buildings."
 
-## User Scenarios & Testing *(mandatory)*
+Give the player a walkable academy town: they steer a character around the map in real time,
+discover each of the five buildings by walking near it, and experience the buildings as solid
+parts of the town.
+
+# Behavior
+
+## User Scenarios
 
 ### User Story 1 - Walk the academy town (Priority: P1)
 
@@ -102,9 +110,7 @@ the character never overlaps the building and can slide along its walls.
 - The character's starting position is clear of all buildings and inside the map.
 - Displays with different refresh rates: the character moves at the same speed on all of them.
 
-## Requirements *(mandatory)*
-
-### Functional Requirements
+## Functional Requirements
 
 - **FR-001**: The hub MUST show a top-down view of the academy town with five buildings:
   Academy Hall, Spirit Beast Stables, Archives, Market Row, and Training Grounds.
@@ -131,7 +137,7 @@ the character never overlaps the building and can slide along its walls.
 - **FR-013**: Held keys MUST be released automatically when the game window loses focus.
 - **FR-014**: An on-screen hint MUST tell the player which keys move the character.
 
-### Key Entities
+## Key Entities
 
 - **Building**: A named location in the town with a fixed position and size on the map, a
   display name, a one-line description, a solid footprint, and a discovery range around it.
@@ -139,22 +145,7 @@ the character never overlaps the building and can slide along its walls.
   speed.
 - **Map**: The bounded area of the town that contains the character and all buildings.
 
-## Success Criteria *(mandatory)*
-
-### Measurable Outcomes
-
-- **SC-001**: The character starts moving as soon as a key is pressed, with no noticeable
-  delay (under 0.1 seconds).
-- **SC-002**: All 5 buildings can be discovered, with the correct name and description, in a
-  single play session of under 1 minute.
-- **SC-003**: The popup appears or hides within 0.25 seconds of the character entering or
-  leaving a building's discovery range.
-- **SC-004**: In a 2-minute test of deliberately walking into every building and map edge, the
-  character never overlaps a building or leaves the map (0 occurrences).
-- **SC-005**: Crossing the map from one side to the other takes the same time (within 10%)
-  on a standard and a high-refresh-rate display.
-- **SC-006**: A first-time player can figure out how to move and discover a building without
-  instructions beyond the on-screen hint.
+# Constraints
 
 ## Assumptions
 
@@ -168,3 +159,23 @@ the character never overlaps the building and can slide along its walls.
 - The whole visible building shape is solid; the player cannot walk "behind" roofs.
 - This builds on the existing prototype `academy-town.html`, which already has basic movement,
   proximity popups, and partial collision.
+
+# Verification
+
+Each user story above carries its own **Independent Test** and **Acceptance Scenarios**; the
+feature as a whole is verified against the measurable outcomes below.
+
+## Measurable Outcomes
+
+- **SC-001**: The character starts moving as soon as a key is pressed, with no noticeable
+  delay (under 0.1 seconds).
+- **SC-002**: All 5 buildings can be discovered, with the correct name and description, in a
+  single play session of under 1 minute.
+- **SC-003**: The popup appears or hides within 0.25 seconds of the character entering or
+  leaving a building's discovery range.
+- **SC-004**: In a 2-minute test of deliberately walking into every building and map edge, the
+  character never overlaps a building or leaves the map (0 occurrences).
+- **SC-005**: Crossing the map from one side to the other takes the same time (within 10%)
+  on a standard and a high-refresh-rate display.
+- **SC-006**: A first-time player can figure out how to move and discover a building without
+  instructions beyond the on-screen hint.
